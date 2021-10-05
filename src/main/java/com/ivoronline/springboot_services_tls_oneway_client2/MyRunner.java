@@ -22,7 +22,7 @@ import java.security.KeyStore;
 public class MyRunner implements CommandLineRunner {
 
   //PROPERTIES
-  String serverURL = "https://localhost:8085/SOAP";
+  String serverURL = "https://localhost:8085/GetPerson";
 
   //===============================================================================
   // RUN
@@ -34,8 +34,8 @@ public class MyRunner implements CommandLineRunner {
     UtilTLS.configureOneWayTLS();
 
     //CREATE SOAP MESSAGE
-    Document    document    = UtilXML.fileToDocument("/Request.xml");
-    SOAPMessage soapMessage = UtilSOAP.createSOAP(document);
+    Document              document            = UtilXML.fileToDocument("/Request.xml");
+    SOAPMessage           soapMessage         = UtilSOAP.createSOAP(document);
 
     //SEND REQUEST
     SOAPConnectionFactory factory             = SOAPConnectionFactory.newInstance();

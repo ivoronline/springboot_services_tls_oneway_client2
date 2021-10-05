@@ -22,24 +22,24 @@ public class UtilTLS {
   static String clientTrustStorePassword = "mypassword";
 
   //=======================================================================================
-  // GET REQUEST FACTORY 2
+  // CONFIGURE ONE WAY TLS
   //=======================================================================================
   public static void configureOneWayTLS() throws Exception {
 
     //LOAD TRUST STORE
-    ClassPathResource classPathResource = new ClassPathResource(clientTrustStoreName);
-    InputStream       inputStream       = classPathResource.getInputStream();
-    KeyStore          trustStore        = KeyStore.getInstance(clientTrustStoreType);
-                      trustStore.load(inputStream, clientTrustStorePassword.toCharArray());
+    ClassPathResource   classPathResource   = new ClassPathResource(clientTrustStoreName);
+    InputStream         inputStream         = classPathResource.getInputStream();
+    KeyStore            trustStore          = KeyStore.getInstance(clientTrustStoreType);
+                        trustStore.load(inputStream, clientTrustStorePassword.toCharArray());
 
+    //CONFIGURE ONE WAY TLS
     TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("PKIX");
                         trustManagerFactory.init(trustStore);
 
-    SSLContext sslContext = SSLContext.getInstance("SSL");
+    SSLContext          sslContext          = SSLContext.getInstance("SSL");
                         sslContext.init(null, trustManagerFactory.getTrustManagers(), null);
 
     HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
-
 
   }
 
