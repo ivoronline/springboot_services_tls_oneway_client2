@@ -1,6 +1,7 @@
 package com.ivoronline.springboot_services_tls_oneway_client2;
 
 import org.w3c.dom.Document;
+
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.SOAPMessage;
 import java.io.ByteArrayOutputStream;
@@ -8,9 +9,9 @@ import java.io.ByteArrayOutputStream;
 public class UtilSOAP {
 
   //=======================================================================================
-  // CREATE SOAP
+  // XML DOCUMENT TO SOAP MESSAGE
   //=======================================================================================
-  public static SOAPMessage createSOAP(Document document) throws Exception {
+  public static SOAPMessage XMLDocumentToSOAPMessage(Document document) throws Exception {
 
     //ADD SOAP ENVELOPE
     SOAPMessage soapMessage = MessageFactory.newInstance().createMessage();
@@ -22,9 +23,9 @@ public class UtilSOAP {
   }
 
   //=======================================================================================
-  // SOAP TO STRING
+  // SOAP MESSAGE TO SOAP STRING
   //=======================================================================================
-  public static String SOAPToString(SOAPMessage soapMessage) throws Exception {
+  public static String SOAPMessageToSOAPString(SOAPMessage soapMessage) throws Exception {
 
     //CONVERT SOAP MESSAGE TO OUTPUT STREAM
     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

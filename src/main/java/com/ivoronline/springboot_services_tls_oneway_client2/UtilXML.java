@@ -1,7 +1,6 @@
 package com.ivoronline.springboot_services_tls_oneway_client2;
 
 import org.w3c.dom.Document;
-
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.InputStream;
 
@@ -27,6 +26,5 @@ public class UtilXML {
     return document;
 
   }
-
 
 }
